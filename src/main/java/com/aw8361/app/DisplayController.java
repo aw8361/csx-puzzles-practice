@@ -41,14 +41,10 @@ public class DisplayController implements Observer<AnchorModel> {
         // Generate the neighboring configurations of the current config
         generate.setOnAction((event) -> {
             this.model.setNeighborConfigs();
-            Set<AnchorConfig> neighbors = new HashSet<>();
-            for (AnchorConfig config : model.getNeighborConfigs()) {
-                if (!config.equals(this.model.getOriginalConfig())) {
-                    neighbors.add(config);
-                }
-            }
 
-            this.puzzles = neighbors.toArray(new AnchorConfig[0]);
+            // TODO: Filter out the identical neighbor configurations
+            // The puzzles array must now have the new list of neighbors
+
             this.editable = false;
             initializeGrid(this.puzzles[0], editable);
 
@@ -103,35 +99,18 @@ public class DisplayController implements Observer<AnchorModel> {
     private void initializeGrid(AnchorConfig puzzle, boolean editable) {
         for (int i = 0; i < AnchorConfig.ROWS; i++) {
             for (int j = 0; j < AnchorConfig.COLS; j++) {
-                AnchorButton button = new AnchorButton(i, j);
-                switch (puzzle.getPosition(new int[] { i, j })) {
-                    case BLOCK:
-                        button.setStyle("-fx-background-color: black");
-                        break;
-                    case EMPTY:
-                        button.setStyle("-fx-background-color: gainsboro");
-                        break;
-                    case TOKEN:
-                        button.setStyle("-fx-background-color: yellow");
-                        break;
-                    case ANCHOR:
-                        button.setStyle("-fx-background-color: purple");
-                        break;
-                    default:
-                        throw new IllegalArgumentException();
-                }
+                // TODO: Create a button for each space within the grid
+                // Button must have unique colors for each possible cell value
+                // It must also save its position internally
 
                 if (editable) {
                     if (puzzle.getPosition(new int[] { i, j }) != Cell.ANCHOR) {
-                        button.setOnAction((event) -> {
-                            // Slight violation of MVC to save time: oops!
-                            puzzle.setPosition(button.getPosition());
-                            this.model.alertObservers();
-                        });
+                        // TODO: Implement required grid button action
+                        // If the button is not an anchor, toggle its value
                     }
                 }
 
-                this.grid.add(button, i, j);
+                // TODO: Add the finalized button to the grid
             }
         }
 
