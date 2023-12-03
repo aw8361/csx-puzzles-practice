@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <GridPane fx:id="grid" minHeight="588.0" minWidth="588.0" style="-fx-background-color: gainsboro;" BorderPane.alignment="CENTER">
+      </GridPane>
+   </center>
+   <left>
+      <VBox alignment="CENTER" minHeight="588.0" minWidth="246.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="prev" alignment="CENTER" disable="true" mnemonicParsing="false" text="&lt;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" minHeight="588.0" minWidth="246.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="next" alignment="CENTER" disable="true" mnemonicParsing="false" text="&gt;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <HBox alignment="CENTER" minHeight="66.0" minWidth="1080.0" spacing="16.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="generate" minHeight="48.0" minWidth="286.0" mnemonicParsing="false" text="GENERATE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="select" disable="true" minHeight="48.0" minWidth="286.0" mnemonicParsing="false" text="SELECT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" minHeight="66.0" minWidth="1080.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="text" alignment="CENTER" contentDisplay="CENTER" text="Create a puzzle.">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
