@@ -49,20 +49,9 @@ public class AnchorConfig implements Configuration {
             this.grid[i] = Arrays.copyOf(origin.grid[i], COLS);
         }
 
-        // Move the anchor in the given direction until blocked
-        int[] next = { this.anchor[0] + move.increment()[0], this.anchor[1] + move.increment()[1] };
-        while (next[0] >= 0 && next[0] < ROWS && next[1] >= 0 && next[1] < COLS && this.grid[next[0]][next[1]] != Cell.BLOCK) {
-            grid[this.anchor[0]][this.anchor[1]] = Cell.EMPTY;
-            this.anchor = next;
-
-            // If anchor passes over token, remove token
-            if (this.grid[anchor[0]][anchor[1]] == Cell.TOKEN) {
-                this.tokens--;
-            }
-
-            grid[this.anchor[0]][this.anchor[1]] = Cell.ANCHOR;
-            next = new int[] { this.anchor[0] + move.increment()[0], this.anchor[1] + move.increment()[1] };
-        }
+        // TODO: Implement required anchor movement
+        // Anchor moves in each direction until it is stopped by a wall or block
+        // If an anchor passes over token, the token is removed
     }
 
     public Cell getPosition(int[] position) {
@@ -88,7 +77,10 @@ public class AnchorConfig implements Configuration {
      */
     @Override
     public boolean isSolution() {
-        return this.tokens == 0;
+        // TODO: Implement correct solution checking
+        // A configuration is a solution when there are no more tokens
+
+        return false;
     }
 
     /**
@@ -96,12 +88,10 @@ public class AnchorConfig implements Configuration {
      */
     @Override
     public Collection<Configuration> getNeighbors() {
-        List<Configuration> neighbors = new ArrayList<>();
-        for (Direction direction : Direction.values()) {
-            neighbors.add(new AnchorConfig(this, direction));
-        }
+        // TODO: Generate all possible neighbors of the configuration
+        // Do not implement validity checking here: simply return all neighbors
 
-        return neighbors;
+        return null;
     }
 
     @Override
