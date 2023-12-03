@@ -45,6 +45,7 @@ public class DisplayController implements Observer<AnchorModel> {
             // TODO: Filter out the identical neighbor configurations
             // The puzzles array must now have the new list of neighbors
 
+            this.index = 0;
             this.editable = false;
             initializeGrid(this.puzzles[0], editable);
 
@@ -70,6 +71,7 @@ public class DisplayController implements Observer<AnchorModel> {
         select.setOnAction((event) -> {
             this.model.setOriginalConfig(this.puzzles[index]);
             this.puzzles = new AnchorConfig[] { this.model.getOriginalConfig() };
+            this.index = 0;
 
             if (this.model.getOriginalConfig().isSolution()) {
                 this.text.setText("The solution has been found.");
